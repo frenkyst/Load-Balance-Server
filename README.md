@@ -62,14 +62,24 @@
 
    ![image](https://user-images.githubusercontent.com/40049149/187938202-ae19f88c-e662-46c7-bcb3-1d92146cafb2.png)
 
+   Perintah untuk menjalankan sistem dari Nginx
+   
+        sudo systemctl start nginx
 
+   ![Uploading image.png…]()
 
+   Perintah untuk me-reload sistem dari Nginx
 
+        sudo systemctl reload nginx
 
+   Perintah untuk mematikan sistem dari Nginx
 
+        sudo systemctl disable nginx
 
+   Perintah untuk menghentikan sistem dari Nginx
 
+        sudo systemctl stop nginx
 
-
-
+Check Nginx​
+Kemudian untuk melihat nginx telah terinstall. Kalian dapat mengakses IP dari server kalian, maka akan terlihat seperti berikut, sebelum itu lakukan beberapa perintah berikut karena di tahapan sebelumnya kita telah menghentikan Nginx yang sudah kita install.
 
