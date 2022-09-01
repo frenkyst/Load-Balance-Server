@@ -301,7 +301,9 @@ Untuk membuat reverse proxy dapat mengikuti langkah-langkah berikut :
 
 - Untuk make sure apakah load balancing yang sudah kita buat tadi berjalan dengan baik atau tidak, kita coba untuk mematikan satu aplikasi kita.
 
-- Kita masuk ke dalam salah satu server aplikasi kita, setelah itu kalian hentikan aplikasi kalian CTRL + C.
+- Kita masuk ke dalam salah satu server aplikasi kita, setelah itu kalian hentikan aplikasi kalian.
+
+      pm2 delete 0
 
   ![image](https://user-images.githubusercontent.com/40049149/187981453-7b90eb43-6b25-4788-87ae-595e5d6779bb.png)
 
