@@ -240,10 +240,7 @@ Untuk membuat reverse proxy dapat mengikuti langkah-langkah berikut :
 
   ![Screenshot from 2022-09-02 00-50-18](https://user-images.githubusercontent.com/40049149/187980176-4248746c-7f95-47e5-8be6-7b2d5e99a161.png)
 
-
-image1
-image1
-image1
+  ![image](https://user-images.githubusercontent.com/40049149/187980535-8226f2a7-f6bf-4b10-b3fd-5c3eb33c2033.png)
 
 - Sekarang kita sudah mempunyai 2 buah server untuk aplikasi kita.
 
@@ -294,22 +291,23 @@ image1
 
 - Selanjutnya jalankan aplikasi kita yang ada di server kita.
 
-image1
-image1
+  ![Screenshot from 2022-09-02 00-50-18](https://user-images.githubusercontent.com/40049149/187980176-4248746c-7f95-47e5-8be6-7b2d5e99a161.png)
+
+  ![image](https://user-images.githubusercontent.com/40049149/187980535-8226f2a7-f6bf-4b10-b3fd-5c3eb33c2033.png)
 
 - Jika sudah sekarang coba buka web browser kalian setelah itu coba akses nama domain kalian.
 
-image1
+  ![image](https://user-images.githubusercontent.com/40049149/187980758-5c134675-2d20-424a-8c43-3165303b9ff7.png)
 
 - Untuk make sure apakah load balancing yang sudah kita buat tadi berjalan dengan baik atau tidak, kita coba untuk mematikan satu aplikasi kita.
 
 - Kita masuk ke dalam salah satu server aplikasi kita, setelah itu kalian hentikan aplikasi kalian CTRL + C.
 
-image1
+  ![image](https://user-images.githubusercontent.com/40049149/187981453-7b90eb43-6b25-4788-87ae-595e5d6779bb.png)
 
 - Sekarang kita coba akses web browser kita lagi setelah itu akses nama domain kalian.
 
-image1
+  ![image](https://user-images.githubusercontent.com/40049149/187980840-74bd90e2-5241-4c9a-be33-9f988e59a6e9.png)
 
       INFO
       Jika aplikasi kalian masih bisa di akses berarti konfigurasi Load Balance kalian berhasil dan tidak ada error
