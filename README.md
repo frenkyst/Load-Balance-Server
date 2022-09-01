@@ -169,38 +169,38 @@ Untuk membuat reverse proxy dapat mengikuti langkah-langkah berikut :
 
          sudo nginx -t
 
-![image](https://user-images.githubusercontent.com/40049149/187949868-a68d0ba1-982b-4e32-aad1-8c6ace71b7c2.png)
+   ![image](https://user-images.githubusercontent.com/40049149/187949868-a68d0ba1-982b-4e32-aad1-8c6ace71b7c2.png)
 
 7. Jika sudah sekarang kita tinggal melakukan restart/reload Nginx kita.
 
          sudo systemctl restart nginx
 
-![image](https://user-images.githubusercontent.com/40049149/187949939-bed70f16-d376-4fac-8239-ea5e6b111d0a.png)
+   ![image](https://user-images.githubusercontent.com/40049149/187949939-bed70f16-d376-4fac-8239-ea5e6b111d0a.png)
 
 8. Sekarang kita akan membuat sebuah virtual host. Untuk membuat virtual host kita harus masuk ke local server kita setelah itu masuk ke dalam file /etc/hosts.
 
          sudo nano /etc/hosts
 
-![image](https://user-images.githubusercontent.com/40049149/187950610-ffcb5bbe-a5af-41ab-ab4c-74ebe6613f34.png)
+   ![image](https://user-images.githubusercontent.com/40049149/187955117-67c95a96-2263-422b-9923-3673a998d1ce.png)
 
 9. Setelah itu masukkan IP server kita selanjutnya masukkan nama domain yang kalian inginkan.
 
-![image](https://user-images.githubusercontent.com/40049149/187950561-7c52203a-5cb4-407a-9331-4b52b0b07559.png)
+   ![image](https://user-images.githubusercontent.com/40049149/187955188-aea603da-3184-4d08-8de3-ee743e729f9e.png)
 
 10. Jika sudah sekarang coba buka web browser kalian setelah itu coba akses nama domain kalian.
 
-image1
+   ![image](https://user-images.githubusercontent.com/40049149/187955307-322d3fd1-b0fb-4868-aafd-b9c757c9d294.png)
 
 11. Jika kita lihat disini adalah kita mendapatkan 502 Bad Gateway kenapa? karena kita belum menjalankan aplikasi kita. Sekarang kita coba untuk menjalankan aplikasi dumbflix yang sudah pernah kita pakai sebelumnya. Untuk menjalankan aplikasi dumbflix kalian dapat mengikuti langkah-langkah berikut ini.
 
          git clone https://github.com/dumbwaysdev/dumbflix-frontend.git
 
-image1
+   ![image](https://user-images.githubusercontent.com/40049149/187955509-c3d4714e-a9cf-42f6-8d63-a330a6cb858a.png)
 
          cd dumbflix-frontend
-         npm install
+         sudo apt install npm
 
-image1
+   ![image](https://user-images.githubusercontent.com/40049149/187956293-cc2bee42-0393-44d6-9fa7-6e19b2846e21.png)
 
 keterangan : perintah di atas ini bertujuan untuk meng-install module dari aplikasi node.js
 
