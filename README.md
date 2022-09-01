@@ -232,7 +232,15 @@ Untuk membuat reverse proxy dapat mengikuti langkah-langkah berikut :
 
 - Jika server kalian sudah terbuat maka buatlah aplikasi sederhana sama seperti pertemuan sebelumnya (node.js). setelah itu jalankan aplikasi tersebut.
 
-image1
+       npm install pm2@latest -g
+       
+  ![Screenshot from 2022-09-02 00-49-31](https://user-images.githubusercontent.com/40049149/187980131-42c50270-dd80-4276-893c-58e1dc0cf852.png)
+
+       pm2 start npm -- start
+
+  ![Screenshot from 2022-09-02 00-50-18](https://user-images.githubusercontent.com/40049149/187980176-4248746c-7f95-47e5-8be6-7b2d5e99a161.png)
+
+
 image1
 image1
 image1
