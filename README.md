@@ -217,3 +217,90 @@ Untuk membuat reverse proxy dapat mengikuti langkah-langkah berikut :
 
     ![image](https://user-images.githubusercontent.com/40049149/187973862-7603382d-4319-4c61-a490-e3cf126a0777.png)
 
+### Load Balancing
+1. Apa itu Load Balancing?​
+
+   Load Balancing adalah suatu jaringan komputer yang menggunakan metode untuk mendistribusikan beban kerjaan pada dua atau bahkan lebih suatu koneksi jaringan secara seimbang agar pekerjaan dapat berjalan optimal dan tidak overload (kelebihan) beban pada salah satu jalur koneksi.
+
+2. Kenapa Harus Load Balancing?​
+
+   Jika kita memiliki website atau aplikasi yang telah digunakan hingga ribuan, ratusan atau bahkan jutaan pengguna maka kita harus melakukan load balancing pada aplikasi tersebut agar tidak down, karena beban akses pengguna dibagi ke beberapa server sekaligus.
+
+3. Membuat Konfigurasi Load Balancing​
+
+   Untuk membuat Load Balancing kalian harus membuat server baru lagi. Untuk cara membuat server kalian ikuti saja step by step seperti saat pertemuan Fundamental DevOps : Install Ubuntu Server
+
+- Jika server kalian sudah terbuat maka buatlah aplikasi sederhana sama seperti pertemuan sebelumnya (node.js). setelah itu jalankan aplikasi tersebut.
+
+image1
+image1
+image1
+image1
+
+- Sekarang kita sudah mempunyai 2 buah server untuk aplikasi kita.
+
+- Sekarang kita akan coba untuk membuat konfigurasi load balancing.
+
+- Pertama-tama kita masuk ke dalam konfigurasi reverse proxy yang sudah kita buat sebelumnya.
+
+      sudo nano sudo nano /etc/nginx/dumbways/my.reverse-proxy.conf
+
+image1
+
+- Selanjutnya kita akan tambahkan konfigurasi ke dalam file my.reverse-proxy.conf. Sekarang kita akan coba tambahkan beberapa konfigurasi, kalian dapat menggunakan konfigurasi di bawah ini.
+
+      upstream loadbalance { 
+          server 192.168.1.107:3000;
+          server 192.168.1.105:3000;
+      }
+      server { 
+          server_name mydomain.xyz; 
+  
+          location / { 
+                   proxy_pass http://loadbalance;
+          }
+      }
+
+image1
+
+  keterangan :
+
+  Pada bagian upstream kalian dapat mengganti nama domain dengan nama yang kalian inginkan.
+
+  Pada bagian server masukan IP dari server kalian, setelah itu diikuti dengan port aplikasi.
+
+- Selanjutnya pada bagian proxy_pass ubah dari yang sebelumnya adalah alamat IP dari aplikasi kalian, sekarang kalian samakan dengan nama upstream yang ada di konfigurasi kalian.
+
+- Jika sudah sekarang kita coba cek apakah konfigurasi yang sudah kita buat tadi itu error atau tidak.
+
+      sudo nginx -t
+
+image1
+
+- Jika tidak ada error jalankan perintah restart nginx untuk merestart nginx kita, karena kita sudah menambahkan suatu konfigurasi baru di dalam file reverse proxy kita.
+
+      sudo systemctl restart nginx
+
+image1
+
+- Selanjutnya jalankan aplikasi kita yang ada di server kita.
+
+image1
+image1
+
+- Jika sudah sekarang coba buka web browser kalian setelah itu coba akses nama domain kalian.
+
+image1
+
+- Untuk make sure apakah load balancing yang sudah kita buat tadi berjalan dengan baik atau tidak, kita coba untuk mematikan satu aplikasi kita.
+
+- Kita masuk ke dalam salah satu server aplikasi kita, setelah itu kalian hentikan aplikasi kalian CTRL + C.
+
+image1
+
+- Sekarang kita coba akses web browser kita lagi setelah itu akses nama domain kalian.
+
+image1
+
+      INFO
+      Jika aplikasi kalian masih bisa di akses berarti konfigurasi Load Balance kalian berhasil dan tidak ada error
