@@ -114,34 +114,35 @@ Untuk membuat reverse proxy dapat mengikuti langkah-langkah berikut :
 
          cd /etc/nginx
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187946466-2895b7f0-31e1-4fb6-bd6d-14550156cc24.png)
 
-      sudo mkdir dumbways
+      sudo mkdir config
+      ls
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187946737-97f148b2-4bf3-4b28-9543-0fbda7bd8690.png)
 
 2. Setelah itu masuk ke directory yang sudah kalian buat, setelah itu buat suatu file dengan nama my.reverse-proxy.conf
 
-         cd dumbways
+         cd config
 
-         sudo nano my.reverse-proxy.conf
+         sudo nano reverse-proxy.conf
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187947641-897ad6fb-2ac2-45c5-8c59-d4c84093ce64.png)
 
 3. Setelah itu masukkan konfigurasi berikut:
 
          server { 
-            server_name domain.com; 
+            server_name menther.com; 
     
             location / { 
-                     proxy_pass http://127.0.0.1:3000;
+                     proxy_pass http://172.16.179.129:3000;
             }
          }
 
 INFO
-pastikan port 3000 di ganti sesuai aplikasi yang digunakan.
+pastikan port 3000 di ganti sesuai aplikasi yang digunakan dan sesuaikan server_name dan IP addres kalian.
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187948123-a6a5758a-2713-432c-ab04-791f3314ff77.png)
 
 4. Jika sudah simpan konfigurasi yang sudah kalian buat tadi.
 
@@ -149,18 +150,18 @@ image1
 
          cd ..
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187948209-d13db6a4-a572-4c90-bc36-2b70f868e428.png)
 
          sudo nano nginx.conf
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187948473-dbd5eaec-5557-4f13-9c6f-9962eae3daf8.png)
 
 6. Selanjutnya pergi ke-bagian include, setelah itu masukan lokasi dari directory yang bersi konfigutasi yang sudah kalian buat tadi.
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187948752-9a15747d-e6b8-47b7-8877-bf5e19896f12.png)
 
       INFO
-      /*; menandakan file nginx.conf akan membaca seluruh file yang berada di dalam directory dumbways
+      /*; menandakan file nginx.conf akan membaca seluruh file yang berada di dalam directory config
 
 7. Beberapa proses tadi adalah cara untuk membuat reverse proxy untuk aplikasi kita, kemudian pastikan untuk melakukan pengecekan konfigurasi dengan menjalankan perintah :
 
