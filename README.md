@@ -132,10 +132,10 @@ Untuk membuat reverse proxy dapat mengikuti langkah-langkah berikut :
 3. Setelah itu masukkan konfigurasi berikut:
 
          server { 
-            server_name menther.com; 
+            server_name menther.xyz; 
     
             location / { 
-                     proxy_pass http://172.16.179.129:3000;
+                     proxy_pass http://192.168.1.107:3000;
             }
          }
 
@@ -144,7 +144,7 @@ Untuk membuat reverse proxy dapat mengikuti langkah-langkah berikut :
          INFO
          pastikan port 3000 di ganti sesuai aplikasi yang digunakan dan sesuaikan server_name dan IP addres kalian.
 
-   ![image](https://user-images.githubusercontent.com/40049149/187948123-a6a5758a-2713-432c-ab04-791f3314ff77.png)
+   ![image](https://user-images.githubusercontent.com/40049149/187973065-57db5443-523b-4bc0-aa4d-4622514af67a.png)
 
 4. Jika sudah simpan konfigurasi yang sudah kalian buat tadi.
 
@@ -198,11 +198,9 @@ Untuk membuat reverse proxy dapat mengikuti langkah-langkah berikut :
     ![image](https://user-images.githubusercontent.com/40049149/187955509-c3d4714e-a9cf-42f6-8d63-a330a6cb858a.png)
 
           cd dumbflix-frontend
-          sudo apt install npm
           npm install
 
-    ![image](https://user-images.githubusercontent.com/40049149/187956293-cc2bee42-0393-44d6-9fa7-6e19b2846e21.png)
-    ![image](https://user-images.githubusercontent.com/40049149/187962541-73df66a3-1836-4199-9711-01c354c0e9a0.png)
+    ![Screenshot from 2022-09-01 23-24-26](https://user-images.githubusercontent.com/40049149/187968906-062ee359-905d-440a-af01-41e69f728ef6.png)
 
 
     keterangan : perintah di atas ini bertujuan untuk meng-install module dari aplikasi node.js
