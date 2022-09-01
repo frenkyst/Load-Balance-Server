@@ -243,9 +243,9 @@ image1
 
 - Pertama-tama kita masuk ke dalam konfigurasi reverse proxy yang sudah kita buat sebelumnya.
 
-      sudo nano sudo nano /etc/nginx/dumbways/my.reverse-proxy.conf
+      sudo nano sudo nano /etc/nginx/config/reverse-proxy.conf
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187977973-d7801259-42ef-4ad2-b586-6d1824156238.png)
 
 - Selanjutnya kita akan tambahkan konfigurasi ke dalam file my.reverse-proxy.conf. Sekarang kita akan coba tambahkan beberapa konfigurasi, kalian dapat menggunakan konfigurasi di bawah ini.
 
@@ -261,7 +261,7 @@ image1
           }
       }
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187977931-42453f4e-014d-4a44-a56c-43b84788451e.png)
 
   keterangan :
 
@@ -275,13 +275,13 @@ image1
 
       sudo nginx -t
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187978044-9a592fd3-5c79-472b-9ecc-4e9687a6cc1c.png)
 
 - Jika tidak ada error jalankan perintah restart nginx untuk merestart nginx kita, karena kita sudah menambahkan suatu konfigurasi baru di dalam file reverse proxy kita.
 
       sudo systemctl restart nginx
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187978199-2d715cf2-d324-4735-bdb4-4b71aec05859.png)
 
 - Selanjutnya jalankan aplikasi kita yang ada di server kita.
 
