@@ -114,12 +114,12 @@ Untuk membuat reverse proxy dapat mengikuti langkah-langkah berikut :
 
          cd /etc/nginx
 
-![image](https://user-images.githubusercontent.com/40049149/187946466-2895b7f0-31e1-4fb6-bd6d-14550156cc24.png)
+   ![image](https://user-images.githubusercontent.com/40049149/187946466-2895b7f0-31e1-4fb6-bd6d-14550156cc24.png)
 
-      sudo mkdir config
-      ls
+         sudo mkdir config
+         ls
 
-![image](https://user-images.githubusercontent.com/40049149/187946737-97f148b2-4bf3-4b28-9543-0fbda7bd8690.png)
+   ![image](https://user-images.githubusercontent.com/40049149/187946737-97f148b2-4bf3-4b28-9543-0fbda7bd8690.png)
 
 2. Setelah itu masuk ke directory yang sudah kalian buat, setelah itu buat suatu file dengan nama my.reverse-proxy.conf
 
@@ -127,7 +127,7 @@ Untuk membuat reverse proxy dapat mengikuti langkah-langkah berikut :
 
          sudo nano reverse-proxy.conf
 
-![image](https://user-images.githubusercontent.com/40049149/187947641-897ad6fb-2ac2-45c5-8c59-d4c84093ce64.png)
+   ![image](https://user-images.githubusercontent.com/40049149/187947641-897ad6fb-2ac2-45c5-8c59-d4c84093ce64.png)
 
 3. Setelah itu masukkan konfigurasi berikut:
 
@@ -139,10 +139,12 @@ Untuk membuat reverse proxy dapat mengikuti langkah-langkah berikut :
             }
          }
 
-INFO
-pastikan port 3000 di ganti sesuai aplikasi yang digunakan dan sesuaikan server_name dan IP addres kalian.
+   .
 
-![image](https://user-images.githubusercontent.com/40049149/187948123-a6a5758a-2713-432c-ab04-791f3314ff77.png)
+         INFO
+         pastikan port 3000 di ganti sesuai aplikasi yang digunakan dan sesuaikan server_name dan IP addres kalian.
+
+   ![image](https://user-images.githubusercontent.com/40049149/187948123-a6a5758a-2713-432c-ab04-791f3314ff77.png)
 
 4. Jika sudah simpan konfigurasi yang sudah kalian buat tadi.
 
@@ -150,40 +152,40 @@ pastikan port 3000 di ganti sesuai aplikasi yang digunakan dan sesuaikan server_
 
          cd ..
 
-![image](https://user-images.githubusercontent.com/40049149/187948209-d13db6a4-a572-4c90-bc36-2b70f868e428.png)
+   ![image](https://user-images.githubusercontent.com/40049149/187948209-d13db6a4-a572-4c90-bc36-2b70f868e428.png)
 
          sudo nano nginx.conf
 
-![image](https://user-images.githubusercontent.com/40049149/187948473-dbd5eaec-5557-4f13-9c6f-9962eae3daf8.png)
+   ![image](https://user-images.githubusercontent.com/40049149/187948473-dbd5eaec-5557-4f13-9c6f-9962eae3daf8.png)
 
 6. Selanjutnya pergi ke-bagian include, setelah itu masukan lokasi dari directory yang bersi konfigutasi yang sudah kalian buat tadi.
 
-![image](https://user-images.githubusercontent.com/40049149/187948752-9a15747d-e6b8-47b7-8877-bf5e19896f12.png)
+   ![image](https://user-images.githubusercontent.com/40049149/187948752-9a15747d-e6b8-47b7-8877-bf5e19896f12.png)
 
-      INFO
-      /*; menandakan file nginx.conf akan membaca seluruh file yang berada di dalam directory config
+         INFO
+         /*; menandakan file nginx.conf akan membaca seluruh file yang berada di dalam directory config
 
 7. Beberapa proses tadi adalah cara untuk membuat reverse proxy untuk aplikasi kita, kemudian pastikan untuk melakukan pengecekan konfigurasi dengan menjalankan perintah :
 
          sudo nginx -t
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187949868-a68d0ba1-982b-4e32-aad1-8c6ace71b7c2.png)
 
 7. Jika sudah sekarang kita tinggal melakukan restart/reload Nginx kita.
 
          sudo systemctl restart nginx
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187949939-bed70f16-d376-4fac-8239-ea5e6b111d0a.png)
 
 8. Sekarang kita akan membuat sebuah virtual host. Untuk membuat virtual host kita harus masuk ke local server kita setelah itu masuk ke dalam file /etc/hosts.
 
          sudo nano /etc/hosts
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187950610-ffcb5bbe-a5af-41ab-ab4c-74ebe6613f34.png)
 
 9. Setelah itu masukkan IP server kita selanjutnya masukkan nama domain yang kalian inginkan.
 
-image1
+![image](https://user-images.githubusercontent.com/40049149/187950561-7c52203a-5cb4-407a-9331-4b52b0b07559.png)
 
 10. Jika sudah sekarang coba buka web browser kalian setelah itu coba akses nama domain kalian.
 
