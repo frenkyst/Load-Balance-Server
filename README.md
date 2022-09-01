@@ -66,7 +66,7 @@
    
         sudo systemctl start nginx
 
-   ![Uploading image.png…]()
+   ![Screenshot from 2022-09-01 21-26-46](https://user-images.githubusercontent.com/40049149/187941136-8601d8e4-6d97-483c-8b83-561841b8f0c1.png)
 
    Perintah untuk me-reload sistem dari Nginx
 
@@ -80,6 +80,134 @@
 
         sudo systemctl stop nginx
 
-Check Nginx​
-Kemudian untuk melihat nginx telah terinstall. Kalian dapat mengakses IP dari server kalian, maka akan terlihat seperti berikut, sebelum itu lakukan beberapa perintah berikut karena di tahapan sebelumnya kita telah menghentikan Nginx yang sudah kita install.
+### Check Nginx​
 
+Kemudian untuk melihat nginx telah terinstall. Kalian dapat mengakses IP dari server kalian, maka akan terlihat seperti berikut
+
+![image](https://user-images.githubusercontent.com/40049149/187941524-9010cc4d-00bf-4ca0-8eec-fe4949a2c071.png)
+
+
+### Reverse Proxy
+
+1. Reverse proxy adalah konfigurasi standar yang digunakan untuk mengubah jalur traffic, misalkan aplikasi menggunakan port 3000 tetapi agar dapat di akses melalui port 80 maka harus menggunakan reverse proxy.
+
+   Berikut adalah konfigurasi dari revese proxy.
+
+         server { 
+            server_name domain.com; 
+    
+            location / { 
+                     proxy_pass http://127.0.0.1:3000;
+            }
+         }
+
+2. Kenapa Harus Reverse Proxy?​
+
+   Untuk mengamankan aplikasi yang berjalan pada server maka kita perlu untuk melakukan reverse proxy, supaya pengguna tidak dapat mengakses aplikasi kita secara langsung.
+
+
+### Membuat Konfigurasi Revese Proxy​
+
+Untuk membuat reverse proxy dapat mengikuti langkah-langkah berikut :
+
+1. Pertama-tama masuk ke folder nginx setelah itu buat suatu directory baru telebih dahulu.
+
+         cd /etc/nginx
+
+image1
+
+      sudo mkdir dumbways
+
+image1
+
+2. Setelah itu masuk ke directory yang sudah kalian buat, setelah itu buat suatu file dengan nama my.reverse-proxy.conf
+
+         cd dumbways
+
+         sudo nano my.reverse-proxy.conf
+
+image1
+
+3. Setelah itu masukkan konfigurasi berikut:
+
+         server { 
+            server_name domain.com; 
+    
+            location / { 
+                     proxy_pass http://127.0.0.1:3000;
+            }
+         }
+
+INFO
+pastikan port 3000 di ganti sesuai aplikasi yang digunakan.
+
+image1
+
+4. Jika sudah simpan konfigurasi yang sudah kalian buat tadi.
+
+5. Selanjutnya keluar dari directory dumbways, setelah itu masuk ke dalam file nginx.conf.
+
+         cd ..
+
+image1
+
+         sudo nano nginx.conf
+
+image1
+
+6. Selanjutnya pergi ke-bagian include, setelah itu masukan lokasi dari directory yang bersi konfigutasi yang sudah kalian buat tadi.
+
+image1
+
+      INFO
+      /*; menandakan file nginx.conf akan membaca seluruh file yang berada di dalam directory dumbways
+
+7. Beberapa proses tadi adalah cara untuk membuat reverse proxy untuk aplikasi kita, kemudian pastikan untuk melakukan pengecekan konfigurasi dengan menjalankan perintah :
+
+         sudo nginx -t
+
+image1
+
+7. Jika sudah sekarang kita tinggal melakukan restart/reload Nginx kita.
+
+         sudo systemctl restart nginx
+
+image1
+
+8. Sekarang kita akan membuat sebuah virtual host. Untuk membuat virtual host kita harus masuk ke local server kita setelah itu masuk ke dalam file /etc/hosts.
+
+         sudo nano /etc/hosts
+
+image1
+
+9. Setelah itu masukkan IP server kita selanjutnya masukkan nama domain yang kalian inginkan.
+
+image1
+
+10. Jika sudah sekarang coba buka web browser kalian setelah itu coba akses nama domain kalian.
+
+image1
+
+11. Jika kita lihat disini adalah kita mendapatkan 502 Bad Gateway kenapa? karena kita belum menjalankan aplikasi kita. Sekarang kita coba untuk menjalankan aplikasi dumbflix yang sudah pernah kita pakai sebelumnya. Untuk menjalankan aplikasi dumbflix kalian dapat mengikuti langkah-langkah berikut ini.
+
+         git clone https://github.com/dumbwaysdev/dumbflix-frontend.git
+
+image1
+
+         cd dumbflix-frontend
+         npm install
+
+image1
+
+keterangan : perintah di atas ini bertujuan untuk meng-install module dari aplikasi node.js
+
+         npm start
+
+image1
+image1
+
+keterangan : perintah di atas ini untuk menjalankan aplikasi
+
+12. Selanjutnya kita coba untuk me-refresh web browser kita.
+
+13. Sekarang bisa kita lihat bahwa aplikasi kita sudah berjalan, dan dapat di akses oleh domain virtual yang kita buat.
