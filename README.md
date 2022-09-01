@@ -207,11 +207,13 @@ Untuk membuat reverse proxy dapat mengikuti langkah-langkah berikut :
 
          npm start
 
-    image1
-    image1
+    ![image](https://user-images.githubusercontent.com/40049149/187974015-51c37aa9-56a9-4cf0-9ea9-55ca64394148.png)
 
     keterangan : perintah di atas ini untuk menjalankan aplikasi
 
 13. Selanjutnya kita coba untuk me-refresh web browser kita.
 
 14. Sekarang bisa kita lihat bahwa aplikasi kita sudah berjalan, dan dapat di akses oleh domain virtual yang kita buat.
+
+    ![image](https://user-images.githubusercontent.com/40049149/187973862-7603382d-4319-4c61-a490-e3cf126a0777.png)
+
